@@ -18,13 +18,16 @@
 --
 -- Table structure for table `ann_annonce`
 --
-
+drop database if exists annonce_immo;
+create database annonce_immo;
+use annonce_immo;
 DROP TABLE IF EXISTS `ann_annonce`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ann_annonce` (
   `ann_oid` int(11) NOT NULL AUTO_INCREMENT,
   `ann_titre` varchar(50) DEFAULT NULL,
+  `ann_prix` int(11) DEFAULT NULL,
   `ann_description` varchar(250) DEFAULT NULL,
   `rub_oid` int(11) DEFAULT NULL,
   `uti_oid` int(11) DEFAULT NULL,
@@ -42,7 +45,7 @@ CREATE TABLE `ann_annonce` (
 
 LOCK TABLES `ann_annonce` WRITE;
 /*!40000 ALTER TABLE `ann_annonce` DISABLE KEYS */;
-INSERT INTO `ann_annonce` VALUES (1,'Gite en Corse','Magnifique gite au bord de la mer avec 5 chambres',6,1),(2,'Tente 2 palces','Tente deux places dans camping montagnard',8,2),(3,'Maison pour famille','Maison de village avec 4 chambres, ideal pour famille',2,3);
+INSERT INTO `ann_annonce` VALUES (1,'Gite en Corse', 2500, 'Magnifique gite au bord de la mer avec 5 chambres',6,1),(2,'Tente 2 palces', 250, 'Tente deux places dans camping montagnard',8,2),(3,'Maison pour famille', 300000, 'Maison de village avec 4 chambres, ideal pour famille',2,3);
 /*!40000 ALTER TABLE `ann_annonce` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,7 +73,7 @@ CREATE TABLE `rub_rubrique` (
 
 LOCK TABLES `rub_rubrique` WRITE;
 /*!40000 ALTER TABLE `rub_rubrique` DISABLE KEYS */;
-INSERT INTO `rub_rubrique` VALUES (1,'Immobilier',10,NULL),(2,'Immobilier',10,NULL),(3,'Vente',20,1),(4,'Location',30,1),(5,'Colocation',40,1),(6,'Vacances',110,NULL),(7,'Gite',120,5),(8,'Hotel',130,5),(9,'Camping',140,5);
+INSERT INTO `rub_rubrique` VALUES (1,'Immobilier',10,NULL),(2,'Vente',20,1),(3,'Location',30,1),(4,'Colocation',40,1),(5,'Vacances',110,NULL),(6,'Gite',120,5),(7,'Hotel',130,5),(8,'Camping',140,5);
 /*!40000 ALTER TABLE `rub_rubrique` ENABLE KEYS */;
 UNLOCK TABLES;
 
